@@ -22,6 +22,9 @@ CT_Drug$Latitude <- as.numeric(CT_Drug$Latitude)
 names(CT_Drug)[names(CT_Drug) == 'Morphine..not.heroin.'] <- 'Morphine'
 names(CT_Drug)[names(CT_Drug) == 'Any.Opioid'] <- 'Opioid'
 
+CT_Drug$Morphine = ifelse(toupper(CT_Drug$Other) %in% c('MORPHINE'),'Y',toupper(CT_Drug$Morphine))
+CT_Drug$Other = ifelse(toupper(CT_Drug$Other) %in% c('MORPHINE'),'N',toupper(CT_Drug$Other))
+
 CT_Drug <- CT_Drug %>% 
   select(Year, Sex, Race, Heroin, Cocaine, Fentanyl, Oxycodone, DeathLoc, DeathState, Longitude, Latitude,
          Oxymorphone, EtOH, Hydrocodone, Benzodiazepine,
@@ -37,7 +40,7 @@ CT_Drug <- CT_Drug %>%
          Amphet = ifelse(!Amphet %in% c('Y','y'),'N',toupper(Amphet)),
          Tramad = ifelse(!Tramad %in% c('Y','y'),'N',toupper(Tramad)),
          Morphine = ifelse(!Morphine %in% c('Y','y'),'N',toupper(Morphine)),
-         Other = ifelse(!Other %in% c('',' '),'N','Y'),
+         Other = ifelse(Other %in% c('',' '),'N','Y'),
          Opioid = ifelse(!Opioid %in% c('Y','y'),'N',toupper(Opioid))
   )
 
