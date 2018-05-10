@@ -47,6 +47,9 @@ CT_Drug <- CT_Drug %>%
 CT_Drug$AgeGroup <- cut(CT_Drug$Age, breaks = c(0, 15, 25, 35, 45, 55, 65, 75, 100), right = FALSE,
                        labels = c("<15", "15-24", "25-34", "35-44", "45-54", "55-64", "65-74", ">74"))
 
+CT_Drug$AgeClass <- cut(CT_Drug$Age, breaks = c(0, 15, 25, 35, 45, 55, 65, 75, 100), right = FALSE,
+                        labels = c("A", "B", "C", "D", "E", "F", "G", "H"))
+
 CT_Drug[CT_Drug == ''] <- NA
 CT_Drug <- CT_Drug[complete.cases(CT_Drug),]
 
