@@ -251,6 +251,12 @@ shinyUI(fluidPage(
                 column(3, style = "font-size: 8pt;", tags$div(tableOutput("dtbl2"), style = 'overflow-x: scroll; white-space: nowrap;')),
                 column(3, style = "font-size: 8pt;", tableOutput("dtbl3")),
                 column(3, style = "font-size: 8pt;", tags$div(tableOutput("dtbl4"), style = 'overflow-x: scroll'))
+              ),
+              fluidRow(
+                column(3, plotlyOutput("drugGender")),
+                column(3, plotlyOutput("drugAge")),
+                column(3, plotlyOutput("drugRace")),
+                column(3, plotlyOutput("drugDrug"))
               )
               ),
      tabPanel("Interactive Map", 

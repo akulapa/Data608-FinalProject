@@ -2598,6 +2598,60 @@ function (input, output, session) {
   striped = TRUE, bordered = TRUE,  
   hover = TRUE, spacing = 'xs',digits = 0)
   
+  output$drugGender <- renderPlotly({
+    
+    ggplot(tblSexYear, aes(x=Sex, y=Total, fill = Sex)) + 
+      geom_bar(width=.9,stat="identity",position = "dodge") + 
+      theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+      facet_wrap(~Year, nrow = 2, ncol = 3) +
+      scale_fill_brewer(palette="Paired") +
+      labs(title="", 
+           x="",
+           y="") +
+      theme(plot.margin=unit(c(0,1,1,1),"cm")) +
+      theme(legend.position = "none")
+  })
   
+  output$drugAge <- renderPlotly({
+    
+    ggplot(tblAgeYear, aes(x=AgeGroup, y=Total, fill = AgeGroup)) + 
+      geom_bar(width=.9,stat="identity",position = "dodge") + 
+      theme(axis.text.x = element_text(angle = 90, size  = 6)) + 
+      facet_wrap(~Year, nrow = 2, ncol = 3) +
+      scale_fill_brewer(palette="Paired") +
+      labs(title="", 
+           x="",
+           y="") +
+      theme(plot.margin=unit(c(0,1,1,1),"cm")) +
+      theme(legend.position = "none")
+  })
+  
+  output$drugRace <- renderPlotly({
+    
+    ggplot(tblRaceYear, aes(x=Race, y=Total, fill = Race)) + 
+      geom_bar(width=.9,stat="identity",position = "dodge") + 
+      theme(axis.text.x = element_text(angle = 90, size  = 6)) + 
+      facet_wrap(~Year, nrow = 2, ncol = 3) +
+      scale_fill_brewer(palette="Paired") +
+      labs(title="", 
+           x="",
+           y="") +
+      theme(plot.margin=unit(c(0,1,1,1),"cm")) +
+      theme(legend.position = "none")
+  })
+  
+  output$drugDrug <- renderPlotly({
+    ggplot(tblDrugYear, aes(x=Drug, y=Total, fill = Drug)) + 
+      geom_bar(width=.9,stat="identity",position = "dodge") + 
+      theme(axis.text.x = element_text(angle = 90, size  = 6)) + 
+      theme(axis.text.y = element_text(angle = 0, size  = 6)) +
+      facet_wrap(~Year, nrow = 2, ncol = 3) +
+      scale_fill_brewer(palette="Paired") +
+      labs(title="", 
+           x="",
+           y="") +
+      theme(plot.margin=unit(c(0,1,1,1),"cm")) +
+      theme(legend.position = "none")
+  })
   
 }
