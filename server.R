@@ -797,6 +797,7 @@ function (input, output, session) {
     ggplot(tbl, aes(AgeGroup, Drug, fill = value)) + 
       geom_tile(colour = "white") + 
       scale_fill_gradient(low="skyblue", high="red") +
+      theme(axis.text.x = element_text(size = 8, angle=60, hjust = 1, colour = 'black')) +
       labs(x="",
            y="",
            title = "Age Group Vs. Drug", 
