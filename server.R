@@ -2381,7 +2381,7 @@ function (input, output, session) {
     
     gg <- plotly_build(gg)
     
-    j <- unique(tblRaceYear$Race) %>% length()
+    j <- unique(tblDrugYear$Race) %>% length()
     
     for(i in c(1:j)){
       tbl <- tblDrugYear %>% filter(Drug==drugOrder[i]) %>% arrange(Year)

@@ -11,9 +11,10 @@ library(shiny)
 library(leaflet)
 library(plotly)
 library(DT)
+library(shinythemes)
 
 # Define UI for application that draws a histogram
-shinyUI(fluidPage(
+shinyUI(fluidPage(theme = shinythemes::shinytheme("flatly"),
 
   navbarPage("Connecticut Accidental Drug Related Deaths 2012-2017", id="nav",
   navbarMenu("Gender",
